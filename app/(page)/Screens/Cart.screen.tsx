@@ -69,7 +69,7 @@ export default function CartScreen() {
             </div>
 
             <h1 className='text-4xl font-bold text-gray-900 mb-4'>Your cart is empty</h1>
-            
+
             <p className='text-xl text-gray-600 mb-8 max-w-2xl mx-auto'>
               Looks like you haven't added anything to your cart yet. Start exploring our products!
             </p>
@@ -155,27 +155,45 @@ export default function CartScreen() {
               const totalPrice = price * item.quantity
 
               return (
-                <div key={item._id} className='bg-white rounded-lg p-4 flex gap-4 shadow-sm hover:shadow-md transition-all'>
+                <div key={item._id} className='bg-white rounded-lg p-3 sm:p-4 flex flex-col sm:flex-row gap-4 shadow-sm hover:shadow-md transition-all'>
                   {/* Product Image */}
-                  <Link href={`/product-details/${item._id}`}>
-                    <div className='w-24 h-24 md:w-32 md:h-32 shrink-0 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden group'>
-                      <img
-                        src={item.imageCover}
-                        alt={item.title}
-                        className='w-full h-full object-contain group-hover:scale-110 transition-transform'
-                      />
-                    </div>
-                  </Link>
+                  <div className="flex gap-4">
+                    <Link href={`/product-details/${item._id}`} className="shrink-0">
+                      <div className='w-24 h-24 md:w-32 md:h-32 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden group'>
+                        <img
+                          src={item.imageCover}
+                          alt={item.title}
+                          className='w-full h-full object-contain group-hover:scale-110 transition-transform'
+                        />
+                      </div>
+                    </Link>
 
-                  {/* Product Info */}
+                    {/* Product Info - Mobile Title and Price */}
+                    <div className="flex-1 sm:hidden">
+                      <Link href={`/product-details/${item._id}`}>
+                        <h3 className='text-gray-900 font-semibold text-sm line-clamp-2 hover:text-[#16a34a] transition-colors'>
+                          {item.title}
+                        </h3>
+                      </Link>
+                      <div className='flex items-center gap-2 mt-1'>
+                        {item.priceAfterDiscount ? (
+                          <span className='text-[#16a34a] font-bold'>{item.priceAfterDiscount} EGP</span>
+                        ) : (
+                          <span className='text-[#16a34a] font-bold'>{item.price} EGP</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product Info - Desktop/Tablet */}
                   <div className='flex-1 flex flex-col'>
-                    <Link href={`/product-details/${item._id}`}>
+                    <Link href={`/product-details/${item._id}`} className="hidden sm:block">
                       <h3 className='text-gray-900 font-semibold mb-2 line-clamp-2 hover:text-[#16a34a] transition-colors'>
                         {item.title}
                       </h3>
                     </Link>
 
-                    <div className='flex items-center gap-2 mb-3'>
+                    <div className='hidden sm:flex items-center gap-2 mb-3'>
                       {item.priceAfterDiscount ? (
                         <>
                           <span className='text-gray-400 line-through text-sm'>{item.price} EGP</span>
@@ -186,33 +204,33 @@ export default function CartScreen() {
                       )}
                     </div>
 
-                    <div className='flex items-center justify-between mt-auto'>
+                    <div className='flex flex-wrap items-center justify-between gap-4 mt-auto'>
                       {/* Quantity Controls */}
-                      <div className='flex items-center border border-gray-300 rounded-lg'>
+                      <div className='flex items-center border border-gray-300 rounded-lg overflow-hidden shrink-0'>
                         <button
                           onClick={() => updateQuantity(item._id, item.quantity - 1)}
-                          className='p-2 text-gray-500 hover:text-gray-700 transition-colors'
+                          className='p-1.5 px-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-50 transition-colors border-r border-gray-200'
                         >
-                          <FontAwesomeIcon icon={faMinus} className='text-sm' />
+                          <FontAwesomeIcon icon={faMinus} className='text-xs' />
                         </button>
-                        <span className='px-4 py-2 text-gray-900 font-semibold'>{item.quantity}</span>
+                        <span className='px-4 py-1.5 text-gray-900 font-semibold min-w-10 text-center'>{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item._id, item.quantity + 1)}
-                          className='p-2 text-gray-500 hover:text-gray-700 transition-colors'
+                          className='p-1.5 px-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-50 transition-colors border-l border-gray-200'
                         >
-                          <FontAwesomeIcon icon={faPlus} className='text-sm' />
+                          <FontAwesomeIcon icon={faPlus} className='text-xs' />
                         </button>
                       </div>
 
                       {/* Total Price & Remove */}
-                      <div className='text-right'>
-                        <div className='text-[#16a34a] font-bold text-lg mb-2'>{totalPrice.toFixed(2)} EGP</div>
+                      <div className='flex items-center sm:block gap-4 sm:gap-0 flex-1 sm:flex-none justify-between sm:text-right'>
+                        <div className='text-[#16a34a] font-bold text-lg'>{totalPrice.toFixed(2)} EGP</div>
                         <button
                           onClick={() => removeProductFromCart(item._id)}
-                          className='text-red-500 hover:text-red-700 transition-colors flex items-center gap-1'
+                          className='text-red-500 hover:text-red-700 transition-colors flex items-center gap-1.5 text-sm font-medium'
                         >
-                          <FontAwesomeIcon icon={faTrash} className='text-sm' />
-                          Remove
+                          <FontAwesomeIcon icon={faTrash} className='text-xs' />
+                          <span className="sm:inline">Remove</span>
                         </button>
                       </div>
                     </div>
@@ -224,7 +242,7 @@ export default function CartScreen() {
 
           {/* Order Summary */}
           <div className='lg:col-span-1'>
-            <div className='bg-white rounded-lg p-6 shadow-sm sticky top-4'>
+            <div className='bg-white rounded-lg p-6 shadow-sm sticky top-24'>
               <h2 className='text-xl font-bold text-gray-900 mb-6'>Order Summary</h2>
 
               <div className='space-y-4 mb-6 pb-6 border-b border-gray-200'>
@@ -249,7 +267,7 @@ export default function CartScreen() {
                 <span className='text-2xl font-bold text-[#16a34a]'>{total.toFixed(2)} EGP</span>
               </div>
 
-              <button 
+              <button
                 onClick={() => router.push('/checkout')}
                 className='w-full bg-[#16a34a] text-white py-3 px-4 rounded-lg hover:bg-[#15803d] transition-all duration-200 font-semibold text-lg shadow-md hover:shadow-lg mb-3'>
                 Proceed to Checkout

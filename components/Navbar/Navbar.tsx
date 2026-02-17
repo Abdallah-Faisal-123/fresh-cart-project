@@ -22,7 +22,7 @@ export default function Navbar() {
         setMenu(!menu)
     }
     return (
-        <header>
+        <header className="sticky top-0 z-50 bg-white shadow-sm">
 
             <div className=" container mx-auto px-4  sm:px-6 lg:px-8  ">
                 {/*top nav */}
@@ -225,22 +225,19 @@ export default function Navbar() {
 
 
                 <div className=" fixed inset-0 bg-black/50 z-30 cursor-pointer" onClick={toggelMenu} ></div>
-                <div className=" animate-slide-in  fixed z-40 bg-white top-0 bottom-0 p-5 space-y-5">
+                <div className=" animate-slide-in  fixed left-0 z-40 bg-white top-0 bottom-0 w-full max-w-80 p-5 space-y-5 overflow-y-auto">
                     <div className=" flex justify-between items-center border-b border-gray-300/50 pb-5">
-                        <h1>
-                            <Link className="text-2xl font-semibold" href={'/'}>
-                                <img src={logo} alt="" />
-                                <span className="text-green-500">Fresh</span><span>Cart</span>
-                            </Link>
-                        </h1>
-                        <button onClick={toggelMenu} className="rounded-full cursor-pointer bg-gray-300 px-2 py-1.5">
+                        <Link className="flex items-center gap-2" href={'/'}>
+                            <Image src={logo} alt="logo" width={150} height={40} />
+                        </Link>
+                        <button onClick={toggelMenu} className="rounded-full cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors w-10 h-10 flex items-center justify-center">
                             <FontAwesomeIcon icon={faXmark} />
                         </button>
                     </div>
-                    <search className="relative  ">
-                        <input className=" border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 px-3 py-2   " type="text" placeholder="Search for products..." />
-                        <FontAwesomeIcon icon={faMagnifyingGlass} className=" absolute right-2 top-1/2 -translate-1/2 " />
-                    </search>
+                    <div className="relative">
+                        <input className="w-full border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md px-3 py-2 pr-10" type="text" placeholder="Search for products..." />
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className=" absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                    </div>
 
                     <div>
                         <h2 className="text-xl font-bold">Main Menu</h2>
