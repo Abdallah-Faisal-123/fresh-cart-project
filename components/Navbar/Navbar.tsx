@@ -22,9 +22,9 @@ export default function Navbar() {
         setMenu(!menu)
     }
     return (
-        <header className="sticky top-0 z-50 bg-white shadow-sm">
+        <header className="sticky top-0 z-50 bg-white shadow-sm  ">
 
-            <div className=" container mx-auto px-4  sm:px-6 lg:px-8  ">
+            <div className=" container mx-auto px-4  sm:px-6 lg:px-8 ">
                 {/*top nav */}
                 <div className="hidden lg:flex justify-between  py-1 text-sm border-b border-gray-300/30">
                     <ul className=" flex justify-between gap-5">

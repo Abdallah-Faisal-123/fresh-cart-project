@@ -4,6 +4,12 @@
     body{
         @apply text-gray-700 
     }
+    html,body{
+        overflow-x: hidden;
+    }
+    *{
+        box-sizing: border-box;
+    }
 }
 
 @theme {
