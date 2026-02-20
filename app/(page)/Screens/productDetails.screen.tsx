@@ -17,6 +17,7 @@ import ProductDetailsLoader from '@/components/loaders/product-details-loade'
 import { CategoriesResponse, ProductsResponse } from '../types/category.type'
 import Link from 'next/link'
 import { useCart } from '@/hooks/useCart'
+import { useWishlist } from '@/hooks/useWishlist'
 
 export default function ProductDetailsScreen({ res, productsRes }: { res: CategoriesResponse, productsRes: ProductsResponse }) {
   const router = useRouter()
@@ -28,6 +29,12 @@ export default function ProductDetailsScreen({ res, productsRes }: { res: Catego
   const [quantity, setQuantity] = useState(1)
   const [product, setProduct] = useState<ProductDetails | null>(null)
   const [swiper, setSwiper] = useState<any>(null)
+  const [isMounted, setIsMounted] = useState(false)
+  const { toggleWishlist, isInWishlist, isAuthenticated } = useWishlist()
+  
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     if (!id) return
@@ -178,7 +185,14 @@ export default function ProductDetailsScreen({ res, productsRes }: { res: Catego
                   Add to Cart
                 </button>
                 <button
-                  onClick={() => setIsWishlisted(!isWishlisted)}
+                  onClick={ (e) => {
+                      setIsWishlisted(!isWishlisted)
+                        e.preventDefault()
+                        e.stopPropagation()
+                        if (isMounted) {
+                          toggleWishlist(product)
+                        }
+                      }}
                   className={`w-14 h-14 rounded-xl border-2 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 active:scale-90 ${isWishlisted
                     ? 'bg-red-50 border-red-200 text-red-500'
                     : 'bg-white border-gray-200 text-gray-400 hover:border-red-200 hover:text-red-400 hover:bg-red-50'
