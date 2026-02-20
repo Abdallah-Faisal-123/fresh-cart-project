@@ -14,10 +14,6 @@ import { setToken } from '../../Server/auth.Actions'
 import { useDispatch } from 'react-redux'
 import { setAuthInfo } from '@/store/slices/auth.slice'
 
-
-
-
-
 export default function Loginform() {
     const router = useRouter()
     const dispatch = useDispatch()
@@ -50,7 +46,6 @@ export default function Loginform() {
                 if (response?.errors) {
                     Object.keys(response.errors).forEach((key) => {
                         setError(key as keyof LoginFormValues, { type: 'server', message: response.errors[key] })
-
                     })
                 }
             }
@@ -59,17 +54,11 @@ export default function Loginform() {
         }
     }
 
-
-
-
-
     return (
-
         <div className='bg-white shadow-md rounded-xl p-10 space-y-8 '>
             <div className='text-center '>
                 <h1>
                     <span className="text-3xl font-semibold" >
-
                         <span className="text-green-500">Fresh</span><span>Cart</span>
                     </span>
                 </h1>
@@ -96,7 +85,7 @@ export default function Loginform() {
                     <label htmlFor="email">Email</label>
                     <input
                         {...register("email")}
-                        className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 pl-9.5 py-2' type="email" id='email' placeholder='Abdullah@examble.com' />
+                        className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md w-full pl-9.5 py-2' type="email" id='email' placeholder='Abdullah@examble.com' />
                     <span className='text-lg absolute top-1/2 left-2 text-gray-400'><FontAwesomeIcon icon={faEnvelope} /></span>
                     {errors.email && <p className='text-red-500 mt-2'> {errors.email.message} </p>}
                 </div>
@@ -107,7 +96,7 @@ export default function Loginform() {
                     </label>
                     <input
                         {...register("password")}
-                        className='  border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 pl-9.5 py-2' type="password" id='password' placeholder='Create a strong password' />
+                        className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md w-full pl-9.5 py-2' type="password" id='password' placeholder='Create a strong password' />
                     <span className='text-lg absolute top-1/2 left-2 text-gray-400'><FontAwesomeIcon icon={faLock} /></span>
                     {errors.password && <p className='text-red-500 mt-2'> {errors.password.message} </p>}
                 </div>
@@ -125,7 +114,6 @@ export default function Loginform() {
                         <FontAwesomeIcon spin icon={faSpinner} />
                         <span>Logging you in</span>
                     </> : <>
-
                         <span>Login</span>
                     </>}
                 </button>
@@ -147,5 +135,3 @@ export default function Loginform() {
         </div>
     )
 }
-
-
