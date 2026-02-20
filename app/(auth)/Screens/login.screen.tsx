@@ -14,7 +14,7 @@ export default function Loginscreen() {
                     {/* left */}
                     <div className='space-y-8 py-10 px-6'>
                         <div className="">
-                            <h2 className='text-4xl font-semibold'>Welcome to <span className='text-[#16a34b]'>FreshCart</span></h2>
+                            <h2 className='text-4xl font-semibold'>Welcome <span className='text-[#16a34b]'>Back</span></h2>
                             <p className='text-lg'>
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas quis
 

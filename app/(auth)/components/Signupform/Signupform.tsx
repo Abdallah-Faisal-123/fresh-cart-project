@@ -77,7 +77,7 @@ export default function Signupform() {
                                 <label htmlFor="name">Name</label>
                                 <input 
                                  {...register("name")} 
-                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 px-3 py-2' type="text" id='name' placeholder='Abdullah' />
+                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md w-full px-3 py-2' type="text" id='name' placeholder='Abdullah' />
                                 {errors.name&& <p className='text-red-500 mt-2'> {errors.name.message} </p> }
                             </div>
 
@@ -85,7 +85,7 @@ export default function Signupform() {
                                 <label htmlFor="email">Email</label>
                                 <input 
                                  {...register("email")} 
-                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 px-3 py-2' type="email" id='email' placeholder='Abdullah@examble.com' />
+                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md w-full px-3 py-2' type="email" id='email' placeholder='Abdullah@examble.com' />
                                 {errors.email&& <p className='text-red-500 mt-2'> {errors.email.message} </p> }
                             </div>
 
@@ -93,7 +93,7 @@ export default function Signupform() {
                                 <label htmlFor="password">Password</label>
                                 <input 
                                  {...register("password")} 
-                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 px-3 py-2' type="password" id='password' placeholder='Create a strong password' />
+                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md w-full px-3 py-2' type="password" id='password' placeholder='Create a strong password' />
                                {errors.password&& <p className='text-red-500 mt-2'> {errors.password.message} </p> }
                             </div>
                              <div className='flex gap-2 items-center'>
@@ -108,7 +108,7 @@ export default function Signupform() {
                                 <label htmlFor="rePassword">Confirm Password</label>
                                 <input 
                                  {...register("rePassword")} 
-                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 px-3 py-2' type="password" id='rePassword' placeholder='Confirm password' />
+                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md w-full px-3 py-2' type="password" id='rePassword' placeholder='Confirm password' />
                                 {errors.rePassword&& <p className='text-red-500 mt-2'> {errors.rePassword.message} </p> }
                             </div>
 
@@ -116,7 +116,7 @@ export default function Signupform() {
                                 <label htmlFor="phone">Phone</label>
                                 <input 
                                  {...register("phone")}
-                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md min-w-96 px-3 py-2' type="text" id='phone' placeholder='+2 010 1273 4407' />
+                                className='border border-gray-400/50 focus:outline-0 focus:border-[#22c55e] rounded-md w-full px-3 py-2' type="text" id='phone' placeholder='+2 010 1273 4407' />
                                 {errors.phone&& <p className='text-red-500 mt-2'> {errors.phone.message} </p> }
                             </div>
                             <div className='flex gap-2 items-center'>
