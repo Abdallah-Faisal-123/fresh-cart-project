@@ -149,23 +149,23 @@ export default function Navbar() {
                             </button>
                             <menu className=" z-50 bg-white absolute top-9 min-w-60 hidden group-hover:block shadow *:px-3 *:py-3 *:hover:bg-gray-100 *:hover:cursor-pointer rounded-lg  divide-y divide-gray-300/40 ">
                                 <li>
-                                    <Link className='flex gap-2 items-center ' href={''}>
+                                    <Link className='flex gap-2 items-center ' href={'/categories/6439d5b90049ad0b52b90048'}>
 
                                         <FontAwesomeIcon className='text-[#16c34b] text-xl fixedWidth' icon={faPerson} />
-                                        <span>Men's Fashion</span>
+                                        <span>Men&apos;s Fashion</span>
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link className='flex gap-2 items-center ' href={''}>
+                                    <Link className='flex gap-2 items-center ' href={'/categories/6439d58a0049ad0b52b9003f'}>
 
                                         <FontAwesomeIcon className='text-[#16c34b] text-xl fixedWidth' icon={faPersonDress} />
-                                        <span>women's Fashion</span>
+                                        <span>Women&apos;s Fashion</span>
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link className='flex gap-2 items-center ' href={''}>
+                                    <Link className='flex gap-2 items-center ' href={'/categories/6439d40367d9aa4ca97064cc'}>
 
                                         <FontAwesomeIcon className='text-[#16c34b] text-xl fixedWidth' icon={faBabyCarriage} />
                                         <span>Baby & Toys</span>
@@ -173,7 +173,7 @@ export default function Navbar() {
                                 </li>
 
                                 <li>
-                                    <Link className='flex gap-2 items-center ' href={''}>
+                                    <Link className='flex gap-2 items-center ' href={'/categories/6439d30b67d9aa4ca97064b1'}>
 
                                         <FontAwesomeIcon className='text-[#16c34b] text-xl fixedWidth' icon={faSuitcaseMedical} />
                                         <span>Beauty & Health</span>
@@ -181,7 +181,7 @@ export default function Navbar() {
                                 </li>
 
                                 <li>
-                                    <Link className='flex gap-2 items-center ' href={''}>
+                                    <Link className='flex gap-2 items-center ' href={'/categories/6439d2d167d9aa4ca970649f'}>
 
                                         <FontAwesomeIcon className='text-[#16c34b] text-xl fixedWidth' icon={faBolt} />
                                         <span>Electronics</span>
@@ -189,7 +189,7 @@ export default function Navbar() {
                                 </li>
 
                                 <li>
-                                    <Link className='flex gap-2 items-center ' href={''}>
+                                    <Link className='flex gap-2 items-center ' href={'/categories'}>
 
                                         <FontAwesomeIcon className='text-[#16c34b] text-xl fixedWidth' icon={faEllipsis} />
                                         <span>View All Categories</span>

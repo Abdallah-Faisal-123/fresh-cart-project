@@ -9,7 +9,7 @@ import logo from '../public/images/freshcart-logo.svg';
 
 export default function NotFound() {
   return (
-    <main className="min-h-[80vh] flex items-center justify-center px-4 bg-white overflow-hidden relative">
+    <main className="min-h-[80vh] flex items-center justify-center px-4 py-5 bg-white overflow-hidden relative">
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-[#16a34b]/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-[#16a34b]/5 rounded-full blur-[100px] pointer-events-none" />
